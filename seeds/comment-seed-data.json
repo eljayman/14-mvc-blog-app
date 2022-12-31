@@ -1,0 +1,17 @@
+[
+  {
+    "contents": "test comment",
+    "user_id": "78bbd653-ce27-4706-bc3e-4cd8065e25c6",
+    "blog_id": "d8c0010b-74d6-45a1-8bb8-0f88b5034afd"
+  },
+  {
+    "contents": "test comment 2",
+    "user_id": "161530c7-5406-4bf5-a50d-d5cc812db01b",
+    "blog_id": "4a9bbdc5-b52a-4a23-bc4f-488c3480a45d"
+  },
+  {
+    "contents": "test comment 3",
+    "user_id": "0b439fbf-b923-439a-94e4-f91218267a9f",
+    "blog_id": "1ce0ec56-8593-4050-91ae-f3bb7bb6c73e"
+  }
+]
