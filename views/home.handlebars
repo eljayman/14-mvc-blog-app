@@ -1,1 +1,20 @@
 {{#each blogs as |blog|}}
+  <div class='blog-card'>
+    <header class='blog-card-header'>
+      <h2>
+        {{blog.title}}
+      </h2>
+    </header>
+    <main class='blog-card-body'>
+      <h3>
+        {{blog.contents}}
+      </h3>
+    </main>
+    <footer class = 'blog-card-footer'>
+      <p>Posted:  {{blog.createdAt}}
+        </br>
+        By: {{blog.user.name}}
+      </p>
+    </footer>
+  </div>
+{{/each}}

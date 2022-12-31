@@ -4,27 +4,36 @@ const Comment = require('./comment');
 const { DataTypes } = require('sequelize');
 
 User.hasMany(Blog, {
-  foreignKey: 'userId',
+  foreignKey: 'user_id',
   type: DataTypes.UUID,
   onDelete: `CASCADE`,
 });
 
-Blog.belongsTo(User);
+Blog.belongsTo(User, {
+  foreignKey: 'user_id',
+  type: DataTypes.UUID,
+});
 
 User.hasMany(Comment, {
-  foreignKey: 'userId',
+  foreignKey: 'user_id',
   type: DataTypes.UUID,
   onDelete: `CASCADE`,
 });
 
-Comment.belongsTo(User);
+Comment.belongsTo(User, {
+  foreignKey: 'user_id',
+  type: DataTypes.UUID,
+});
 
 Blog.hasMany(Comment, {
-  foreignKey: 'blogId',
+  foreignKey: 'blog_id',
   type: DataTypes.UUID,
   onDelete: `CASCADE`,
 });
 
-Comment.belongsTo(Blog);
+Comment.belongsTo(Blog, {
+  foreignKey: 'blog_id',
+  type: DataTypes.UUID,
+});
 
 module.exports = { User, Blog, Comment };

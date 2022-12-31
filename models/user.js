@@ -11,7 +11,7 @@ class User extends Model {
 
 User.init(
   {
-    userId: {
+    Id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
@@ -48,7 +48,7 @@ User.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'User',
+    modelName: 'user',
   }
 );
 

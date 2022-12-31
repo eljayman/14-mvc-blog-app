@@ -7,7 +7,7 @@ class Blog extends Model {}
 
 Blog.init(
   {
-    blogId: {
+    Id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
@@ -35,7 +35,7 @@ Blog.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Blog',
+    modelName: 'blog',
   }
 );
 

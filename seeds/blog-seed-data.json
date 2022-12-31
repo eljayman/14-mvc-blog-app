@@ -1,17 +1,17 @@
 [
   {
-    "title": "first",
-    "contents": "test text",
-    "user_id": "78bbd653-ce27-4706-bc3e-4cd8065e25c6"
+    "title": "first blog title",
+    "contents": "first test contents text",
+    "user_id": "26525189-4f6a-4b16-991e-112319823ab9"
   },
   {
-    "title": "second",
-    "contents": "test text",
-    "user_id": "161530c7-5406-4bf5-a50d-d5cc812db01b"
+    "title": "second blog title",
+    "contents": "second test contents text",
+    "user_id": "8779c33c-77e4-4a55-a095-365fb79c8cfb"
   },
   {
-    "title": "third",
-    "contents": "test text",
-    "user_id": "0b439fbf-b923-439a-94e4-f91218267a9f"
+    "title": "third blog title",
+    "contents": "third test contents text",
+    "user_id": "67bbebd3-f240-43eb-bb32-78ae4f35a9ba"
   }
 ]

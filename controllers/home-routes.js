@@ -4,12 +4,24 @@ const { Blog, User } = require('../models');
 router.get('/', async (req, res) => {
   try {
     const blogData = await Blog.findAll({
-      include: User,
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
     });
-    console.log(blogData);
-    // return res.render('home', { ...blogData });
+
+    // Serialize data so the template can read it
+    const blogs = blogData.map((blog) => blog.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('home', {
+      blogs,
+      // logged_in: req.session.logged_in,
+    });
   } catch (err) {
-    return res.status(500).json(err);
+    res.status(500).json(err);
   }
 });
 
