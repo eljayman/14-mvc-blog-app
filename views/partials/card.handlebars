@@ -1,5 +1,4 @@
-{{> card}}
-{{!-- {{#each blogs as |blog|}}
+{{#each blogs as |blog|}}
   <div class='blog-card'>
     <header class='blog-card-header'>
       <h2>
@@ -12,10 +11,10 @@
       </h3>
     </main>
     <footer class = 'blog-card-footer'>
-      <p>Posted:  {{blog.createdAt}}
+      <p>Posted:  {{format_date blog.createdAt}}
         </br>
         By: {{blog.user.name}}
       </p>
     </footer>
   </div>
-{{/each}} --}}
+{{/each}}

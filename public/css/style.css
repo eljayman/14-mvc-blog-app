@@ -1,0 +1,61 @@
+:root {
+  --var-background-color: rgba(75, 50, 25, 0.5);
+  --var-font-color: rgba(250, 250, 250, 0.9);
+  --var-border-color: ;
+  --var-header-color: rgba(60, 90, 250, 0.9);
+}
+
+* {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  color: var(--var-font-color);
+  background-color: var(--var-background-color);
+  align-items: center;
+}
+
+nav {
+  background-color: var(--var-header-color);
+  display: flex;
+  flex-direction: column;
+  border: ridge 3px;
+  border-radius: 6px;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+li {
+  list-style: none;
+  font-weight: bold;
+  padding-right: 6px;
+  padding-left: 6px;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+nav a {
+  color: (var(--var-font-color));
+  text-decoration: none;
+}
+
+h1 {
+  margin-left: 50px;
+}
+
+.blog-card {
+  background-color: var(--var-header-color);
+  margin: 15px;
+  padding: 10px;
+  border: ridge 3px;
+  border-radius: 6px;
+}
+
+h3 {
+  font-weight: lighter;
+}
