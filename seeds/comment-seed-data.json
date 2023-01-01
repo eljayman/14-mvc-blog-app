@@ -1,17 +1,17 @@
 [
   {
     "contents": "first test comment",
-    "user_id": "26525189-4f6a-4b16-991e-112319823ab9",
-    "blog_id": "f90907f2-0ebd-4536-b1d1-6c8daf20026a"
+    "user_id": "79889496-11c7-4061-8d2d-e43b8c63ea25",
+    "blog_id": "52fa483e-3657-4baf-99ed-a85d007515c8"
   },
   {
     "contents": "test comment 2",
-    "user_id": "8779c33c-77e4-4a55-a095-365fb79c8cfb",
-    "blog_id": "d9bd8fb3-e1d2-4160-9225-3c0f9078ba99"
+    "user_id": "4d8d4a7c-fd61-4b04-b934-506bfa38a5e5",
+    "blog_id": "a7eb1ebe-168b-40e1-9e01-c8a4acffcac4"
   },
   {
     "contents": "test comment 3",
-    "user_id": "67bbebd3-f240-43eb-bb32-78ae4f35a9ba",
-    "blog_id": "10ae3e83-fd74-4b02-9350-96cae0f03af2"
+    "user_id": "981f43ad-0ee7-4c25-87c8-3d6c321b93bf",
+    "blog_id": "d5e7a4da-85e3-4077-a780-4ba84b8d4a95"
   }
 ]

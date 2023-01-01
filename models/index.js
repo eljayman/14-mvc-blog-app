@@ -3,6 +3,7 @@ const Blog = require('./blog');
 const Comment = require('./comment');
 const { DataTypes } = require('sequelize');
 
+//define table relationships
 User.hasMany(Blog, {
   foreignKey: 'user_id',
   type: DataTypes.UUID,

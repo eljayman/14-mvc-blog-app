@@ -1,4 +1,4 @@
-// post title, contents, post creator’s username, and date created
+// blog title, contents, creator’s username, and date created
 const { Model, DataTypes, Sequelize } = require('sequelize');
 const sequelize = require('../config/connection');
 const User = require('./user');
