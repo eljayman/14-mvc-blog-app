@@ -47,7 +47,8 @@ h1 {
   margin-left: 50px;
 }
 
-.blog-card {
+.blog-card,
+h2 {
   background-color: var(--var-header-color);
   margin: 15px;
   padding: 10px;
@@ -57,4 +58,44 @@ h1 {
 
 h3 {
   font-weight: lighter;
+}
+
+#login-prompt {
+  text-align: center;
+}
+
+#login-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.form-card {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--var-header-color);
+  margin: 15px;
+  padding: 10px;
+  border: ridge 3px;
+  border-radius: 6px;
+}
+
+.form-card-header {
+  margin: 15px;
+  padding: 10px;
+  font-weight: bolder;
+  text-align: center;
+}
+
+label,
+input,
+button {
+  margin: 5px;
+  padding: 5px;
+}
+
+button {
+  width: fit-content;
+  font: bolder;
 }

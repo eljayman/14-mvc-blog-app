@@ -1,0 +1,25 @@
+<h2 id='login-prompt'>Login or sign up to blog or comment</h2>
+{{! login card for existing user }}
+<div id='login-container'>
+  <div class='form-card'>
+    <header class='form-card-header'>Login</header>
+    <label for='name-login'>Name: </label>
+    <input type='text' id='name-login' />
+    <label for='password-login'>Password: </label>
+    <input type='password' id='password-login' />
+    <button class='submit-btn' type='submit' id='login-btn'>Login</button>
+  </div>
+  {{! sign up card for new user }}
+  <div class='form-card'>
+    <header class='form-card-header'>Sign Up</header>
+    <label for='name-sign-up'>Name: </label>
+    <input type='text' id='name-sign-up' />
+    <label for='password-sign-up'>Password: </label>
+    <input type='password' id='password-sign-up' />
+    <label for='password-sign-up-confirm'>Confirm: </label>
+    <input type='password' id='password-sign-up-confirm' />
+    <button class='submit-btn' type='submit' id='sign-up-btn'>Sign Up</button>
+  </div>
+</div>
+{{! add logic to handle forms }}
+<script src='./js/login.js'></script>
