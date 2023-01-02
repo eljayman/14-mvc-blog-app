@@ -38,14 +38,13 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/dashboard', async (req, res) => {
-  const userData = await User.findOne( {
+  const userData = await User.findOne({
     where: req.session.name,
     attributes: { exclude: ['password'] },
     include: Blog,
   });
 
   const user = userData.get({ plain: true });
-
 
   res.render('dashboard', {
     ...user,
@@ -67,6 +66,11 @@ router.get('/logout', withLogin, async (req, res) => {
     alert(response.statusText);
     res.end();
   }
+});
+
+//route to create-blog page
+router.get('/create', withLogin, (req, res) => {
+  res.render('create-blog');
 });
 
 module.exports = router;

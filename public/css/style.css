@@ -100,9 +100,18 @@ button {
   font: bolder;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .button-field {
   display: flex;
   justify-content: space-around;
+}
+
+#new-blog-btn {
+  font-size: 24px;
+  border-radius: 10px;
 }
 
 .blog-tile-body {
@@ -127,4 +136,19 @@ h3 {
 
 p {
   color: var(--var-font-color);
+}
+
+.new-blog-label {
+  height: 100px;
+}
+
+#new-blog-title {
+  height: 36px;
+  font-size: 24px;
+}
+
+#new-blog-contents {
+  width: 90%;
+  height: 100px;
+  font-size: 16px;
 }
