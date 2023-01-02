@@ -1,0 +1,10 @@
+{{#each users as |user|}}
+  <a href='/blog/{{user.blog.id}}' class='blog-tile'>
+    <main class='blog-tile-body'>
+      <h3>
+        {{user.blog.title}}
+      </h3>
+      <p>Posted: {{format_date user.blog.createdAt}}</p>
+    </main>
+  </a>
+{{/each}}
