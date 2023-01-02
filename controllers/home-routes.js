@@ -33,25 +33,39 @@ router.get('/login', (req, res) => {
     res.redirect('/dashboard');
     return;
   }
-
+  //otherwise go to login page
   res.render('login');
 });
 
-router.get('/dashboard', withLogin, async (req, res) => {
-  try {
-    const userData = await User.findOne(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Blog }],
-    });
+router.get('/dashboard', async (req, res) => {
+  const userData = await User.findOne( {
+    where: req.session.name,
+    attributes: { exclude: ['password'] },
+    include: Blog,
+  });
 
-    const user = userData.get({ plain: true });
+  const user = userData.get({ plain: true });
 
-    res.render('dashboard', {
-      ...user,
-      logged_in: true,
-    });
-  } catch (err) {
-    res.status(500).json(err);
+
+  res.render('dashboard', {
+    ...user,
+    logged_in: true,
+  });
+});
+
+//link from homepage sends fetch request to api/user/logout
+router.get('/logout', withLogin, async (req, res) => {
+  const response = await fetch('/api/user/logout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+  });
+  //handle the response
+  if (response.ok) {
+    document.location.replace('/');
+    res.end();
+  } else {
+    alert(response.statusText);
+    res.end();
   }
 });
 

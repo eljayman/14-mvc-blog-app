@@ -16,13 +16,13 @@ router.post('/signup', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+//login route
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({
       where: { name: req.body.name },
     });
-
+    //find user by name
     if (!userData) {
       res
         .status(400)
@@ -42,7 +42,6 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-
       res.json({ user: userData, message: 'You are now logged in!' });
     });
   } catch (err) {
@@ -50,7 +49,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post('/logout', (req, res) => {
+router.post('/logout', withLogin, (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();

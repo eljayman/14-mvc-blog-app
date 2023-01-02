@@ -16,9 +16,11 @@ const sess = {
   cookie: {
     maxAge: ONE_DAY_IN_MILLISECONDS,
   },
+  rolling: true,
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   name: 'tblg.sid',
+  unset: 'destroy',
   store: new SequelizeStore({
     db: sequelize,
   }),
