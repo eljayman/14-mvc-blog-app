@@ -151,7 +151,9 @@ p {
 }
 
 textarea {
-  width: 90%;
+  width: 95%;
+  min-width: 50%;
+  max-width: 98%;
   height: 100px;
   font-size: 16px;
   align-self: center;

@@ -27,13 +27,17 @@ router.get('/:id', withLogin, async (req, res) => {
     });
     const blog = blogData.get({ plain: true });
     // render blog
-    // res.json(blog);
     res.render('blog', {
       blog,
     });
   } catch (error) {
     res.status(500).json(error);
   }
+});
+
+router.post('/', withLogin, async (req, res) => {
+  const blogData = await Blog.create(req.body);
+  res.status(200).json(blogData);
 });
 
 router.patch('/:id', withLogin, async (req, res) => {
@@ -46,6 +50,15 @@ router.patch('/:id', withLogin, async (req, res) => {
     }
   );
   res.status(200).json(blogData);
+});
+
+router.delete('/:id', withLogin, async (req, res) => {
+  const response = await Blog.destroy({
+    where: {
+      id: req.params.id,
+    },
+  });
+  res.status(204).json(response);
 });
 
 module.exports = router;

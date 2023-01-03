@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Blog, User } = require('../models');
-
 const withLogin = require('../middleware/with-login');
+
 //homepage view all blog entries
 router.get('/', async (req, res) => {
   try {
@@ -21,13 +21,13 @@ router.get('/', async (req, res) => {
     // Pass serialized data into template
     res.render('home', {
       blogs,
-      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
+//login screen with sign up form
 router.get('/login', (req, res) => {
   // If the user is already logged in, go to dashboard
   if (req.session.logged_in) {
@@ -38,7 +38,8 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/dashboard', async (req, res) => {
+//user dashboard requires user is logged in
+router.get('/dashboard', withLogin, async (req, res) => {
   const userData = await User.findOne({
     where: req.session.name,
     attributes: { exclude: ['password'] },
@@ -61,7 +62,7 @@ router.get('/logout', withLogin, async (req, res) => {
   });
   //handle the response
   if (response.ok) {
-    document.location.replace('/');
+    location.replace('/');
     res.end();
   } else {
     alert(response.statusText);

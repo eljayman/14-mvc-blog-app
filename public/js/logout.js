@@ -5,7 +5,7 @@ const handleLogout = async () => {
   });
 
   if (response.ok) {
-    document.location.replace('/');
+    location.replace('/');
   } else {
     alert(response.statusText);
   }

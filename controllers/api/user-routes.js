@@ -1,8 +1,7 @@
 const router = require('express').Router();
-const withLogin = require('../../middleware/with-login');
 const { User } = require('../../models/');
 
-// api route for new user
+//route for new user
 router.post('/signup', async (req, res) => {
   try {
     const newUser = await User.create(req.body);
@@ -49,7 +48,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post('/logout', withLogin, (req, res) => {
+router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
