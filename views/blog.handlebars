@@ -1,0 +1,27 @@
+<section class='blog-head'>
+  <h2 id='blog-head-prompt'>{{blog.title}} by {{blog.user.name}}</h2>
+
+  <div class='blog-body'>
+    <h3>{{blog.contents}}</h3>
+  </div>
+  <hr />
+  <footer class='blog-dates'>
+    <p id='blog-post-date'>Posted: {{format_date blog.createdAt}}</p>
+    <p id='blog-update-date'>Updated: {{format_date blog.updatedAt}}</p>
+  </footer>
+</section>
+<section class='comments-section'>
+  {{#each blog.comments as |comment|}}
+    <h4 id='comment-body'>{{comment.contents}}</h4>
+    <hr />
+    <p id='comment-post-date'>Posted: {{format_date comment.createdAt}}</p>
+    <p id='comment-user-name'>By: {{comment.user.name}}</p>
+  {{/each}}
+</section>
+<div class='update-blog-input'>
+  <textarea id='update-blog-text' placeholder='Update Blog Text'></textarea>
+  <div class='button-field'>
+    <button id='update-blog-btn'>+ Update Blog +</button>
+  </div>
+</div>
+<script src='/js/update-blog.js'></script>

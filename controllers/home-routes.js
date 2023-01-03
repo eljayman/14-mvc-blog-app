@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Blog, User } = require('../models');
+
 const withLogin = require('../middleware/with-login');
 //homepage view all blog entries
 router.get('/', async (req, res) => {

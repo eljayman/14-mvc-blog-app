@@ -48,6 +48,8 @@ h1 {
 }
 
 .blog-card,
+.blog-head,
+.comments-section,
 h2 {
   background-color: var(--var-header-color);
   margin: 15px;
@@ -109,7 +111,8 @@ button:hover {
   justify-content: space-around;
 }
 
-#new-blog-btn {
+#new-blog-btn,
+#update-blog-btn {
   font-size: 24px;
   border-radius: 10px;
 }
@@ -147,8 +150,14 @@ p {
   font-size: 24px;
 }
 
-#new-blog-contents {
+textarea {
   width: 90%;
   height: 100px;
   font-size: 16px;
+  align-self: center;
+}
+
+.update-blog-input {
+  display: flex;
+  flex-direction: column;
 }

@@ -1,11 +1,36 @@
 const router = require('express').Router();
 const withLogin = require('../../middleware/with-login');
-const { Blog } = require('../../models');
+const { Blog, User, Comment } = require('../../models');
 
-router.post('/', withLogin, async (req, res) => {
+//route to get blog from dashboard, then render blog
+router.get('/:id', async (req, res) => {
   try {
-    const newBlog = await Blog.create(req.body);
-    res.status(200).json(newBlog);
+    //find blog by query param
+    const blogData = await Blog.findOne({
+      where: { id: req.params.id },
+      include: [
+        //include comments and user data
+        {
+          model: User,
+          attributes: ['name'],
+        },
+        {
+          model: Comment,
+          include: [
+            {
+              model: User,
+              attributes: ['name'],
+            },
+          ],
+        },
+      ],
+    });
+    const blog = blogData.get({ plain: true });
+    // render blog
+    // res.json(blog);
+    res.render('blog', {
+      blog,
+    });
   } catch (error) {
     res.status(500).json(error);
   }
