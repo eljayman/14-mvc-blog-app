@@ -3,7 +3,7 @@ const withLogin = require('../../middleware/with-login');
 const { Blog, User, Comment } = require('../../models');
 
 //route to get blog from dashboard, then render blog
-router.get('/:id', async (req, res) => {
+router.get('/:id', withLogin, async (req, res) => {
   try {
     //find blog by query param
     const blogData = await Blog.findOne({
@@ -34,6 +34,18 @@ router.get('/:id', async (req, res) => {
   } catch (error) {
     res.status(500).json(error);
   }
+});
+
+router.patch('/:id', withLogin, async (req, res) => {
+  const blogData = await Blog.update(
+    { contents: req.body.contents },
+    {
+      where: {
+        id: req.body.id,
+      },
+    }
+  );
+  res.status(200).json(blogData);
 });
 
 module.exports = router;
