@@ -16,6 +16,8 @@ const loginHandler = async (e) => {
     } else {
       alert(response.statusText);
     }
+  } else {
+    return alert('Must enter name and password');
   }
 };
 
@@ -45,6 +47,8 @@ const signUpHandler = async (e) => {
     } else {
       alert(response.statusText);
     }
+  } else {
+    alert('Must enter name and matching passwords');
   }
 };
 //target buttons and add listeners

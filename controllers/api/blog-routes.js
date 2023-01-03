@@ -29,6 +29,8 @@ router.get('/:id', withLogin, async (req, res) => {
     // render blog
     res.render('blog', {
       blog,
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
     });
   } catch (error) {
     res.status(500).json(error);
@@ -36,7 +38,10 @@ router.get('/:id', withLogin, async (req, res) => {
 });
 
 router.post('/', withLogin, async (req, res) => {
-  const blogData = await Blog.create(req.body);
+  const blogData = await Blog.create({
+    ...req.body,
+    user_id: req.session.user_id,
+  });
   res.status(200).json(blogData);
 });
 

@@ -2,6 +2,7 @@
   --var-background-color: rgb(15, 69, 52);
   --var-font-color: rgb(232, 248, 233);
   --var-header-color: rgba(102, 109, 152, 0.419);
+  --var-caution-text: rgb(144, 19, 0);
 }
 
 * {
@@ -51,11 +52,21 @@ h1 {
 .blog-head,
 .comments-section,
 h2 {
+  color: var(--var-font-color);
   background-color: var(--var-header-color);
   margin: 15px;
   padding: 10px;
   border: ridge 3px;
   border-radius: 6px;
+}
+
+#blog-head-prompt {
+  display: flex;
+  justify-content: space-between;
+}
+
+#del-blog-btn {
+  color: var(--var-caution-text);
 }
 
 h3 {
@@ -112,7 +123,8 @@ button:hover {
 }
 
 #new-blog-btn,
-#update-blog-btn {
+#update-blog-btn,
+#comment-btn {
   font-size: 24px;
   border-radius: 10px;
 }
@@ -159,7 +171,8 @@ textarea {
   align-self: center;
 }
 
-.update-blog-input {
+.update-blog-input,
+.comment-input {
   display: flex;
   flex-direction: column;
 }

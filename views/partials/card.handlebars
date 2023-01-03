@@ -1,9 +1,11 @@
 {{#each blogs as |blog|}}
   <div class='blog-card'>
     <header class='blog-card-header'>
+      <a href = '/api/comment/{{blog.Id}}'>
       <h2>
         {{blog.title}}
       </h2>
+      </a>
     </header>
     <main class='blog-card-body'>
       <h3>

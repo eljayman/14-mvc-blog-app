@@ -21,6 +21,8 @@ router.get('/', async (req, res) => {
     // Pass serialized data into template
     res.render('home', {
       blogs,
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -35,7 +37,10 @@ router.get('/login', (req, res) => {
     return;
   }
   //otherwise go to login page
-  res.render('login');
+  res.render('login', {
+    logged_in: req.session.logged_in,
+    user_id: req.session.user_id,
+  });
 });
 
 //user dashboard requires user is logged in
@@ -50,7 +55,8 @@ router.get('/dashboard', withLogin, async (req, res) => {
 
   res.render('dashboard', {
     ...user,
-    logged_in: true,
+    logged_in: req.session.logged_in,
+    user_id: req.session.user_id,
   });
 });
 
@@ -72,7 +78,9 @@ router.get('/logout', withLogin, async (req, res) => {
 
 //route to create-blog page
 router.get('/create', withLogin, (req, res) => {
-  res.render('create-blog');
+  res.render('create-blog', {
+    logged_in: req.session.logged_in,
+  });
 });
 
 module.exports = router;

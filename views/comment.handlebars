@@ -2,9 +2,7 @@
   <h2 id='blog-head-prompt' data-id='{{blog.Id}}'>{{blog.title}}
     by
     {{blog.user.name}}
-    <button id='del-blog-btn'>-DELETE-</button>
   </h2>
-
   <div class='blog-body'>
     <h3>{{blog.contents}}</h3>
   </div>
@@ -14,19 +12,23 @@
     <p id='blog-update-date'>Updated: {{format_date blog.updatedAt}}</p>
   </footer>
 </section>
+{{#if blog.comments.length}}
 <section class='comments-section'>
   {{#each blog.comments as |comment|}}
     <h4 id='comment-body'>{{comment.contents}}</h4>
     <hr />
     <p id='comment-details'>Posted:
       {{format_date comment.createdAt}}
-      <i>By: {{comment.user.name}}</i></p>
+     <i>By:
+      {{comment.user.name}}</p></i>
+    <hr />
   {{/each}}
 </section>
-<div class='update-blog-input'>
-  <textarea id='update-blog-text' placeholder='Update Blog Text'></textarea>
+{{/if}}
+<div class='comment-input'>
+  <textarea id='make-comment' placeholder='Enter Comment Here'></textarea>
   <div class='button-field'>
-    <button id='update-blog-btn'># Update Blog #</button>
+    <button id='comment-btn'>+ Comment +</button>
   </div>
 </div>
-<script src='/js/update-blog.js'></script>
+<script src='/js/comment.js'></script>
