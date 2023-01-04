@@ -5,5 +5,5 @@ const withLogin = (req, res, next) => {
     next();
   }
 };
-
+//middleware to protect views from being rendered by a user who isn't logged in
 module.exports = withLogin;

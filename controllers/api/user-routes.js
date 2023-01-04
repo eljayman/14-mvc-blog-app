@@ -21,23 +21,22 @@ router.post('/login', async (req, res) => {
     const userData = await User.findOne({
       where: { name: req.body.name },
     });
-    //find user by name
+    //find user by name return error if no user
     if (!userData) {
       res
         .status(400)
         .json({ message: 'Incorrect name or password, please try again' });
       return;
     }
-
+    //compare password return error if it doesn't match
     const validPassword = await userData.checkPassword(req.body.password);
-
     if (!validPassword) {
       res
         .status(400)
         .json({ message: 'Incorrect name or password, please try again' });
       return;
     }
-
+    //record the session data and respond
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
@@ -48,6 +47,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
+//logout route
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

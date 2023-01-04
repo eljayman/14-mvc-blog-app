@@ -38,6 +38,7 @@ router.get('/:id', withLogin, async (req, res) => {
   }
 });
 
+//new blog post route
 router.post('/', withLogin, async (req, res) => {
   const blogData = await Blog.create({
     ...req.body,
@@ -46,6 +47,7 @@ router.post('/', withLogin, async (req, res) => {
   res.status(200).json(blogData);
 });
 
+//update blog route
 router.patch('/:id', withLogin, async (req, res) => {
   const blogData = await Blog.update(
     { contents: req.body.contents },
@@ -58,6 +60,7 @@ router.patch('/:id', withLogin, async (req, res) => {
   res.status(200).json(blogData);
 });
 
+//delete blog route
 router.delete('/:id', withLogin, async (req, res) => {
   const response = await Blog.destroy({
     where: {

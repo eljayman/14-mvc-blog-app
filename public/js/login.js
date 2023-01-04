@@ -1,3 +1,4 @@
+//handles the login form submit
 const loginHandler = async (e) => {
   e.preventDefault();
   //grab input from login
@@ -17,10 +18,12 @@ const loginHandler = async (e) => {
       alert(response.statusText);
     }
   } else {
+    //lets user know the fields can't be empty
     return alert('Must enter name and password');
   }
 };
 
+//handles the new user form submit
 const signUpHandler = async (e) => {
   e.preventDefault();
   //grab inputs
@@ -48,6 +51,7 @@ const signUpHandler = async (e) => {
       alert(response.statusText);
     }
   } else {
+    //lets user know the passwords didn't match
     alert('Must enter name and matching passwords');
   }
 };

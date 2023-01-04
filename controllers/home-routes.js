@@ -50,7 +50,7 @@ router.get('/dashboard', withLogin, async (req, res) => {
     attributes: { exclude: ['password'] },
     include: Blog,
   });
-
+//dashboard view includes all of user's blogs
   const user = userData.get({ plain: true });
 
   res.render('dashboard', {

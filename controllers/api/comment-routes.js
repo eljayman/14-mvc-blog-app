@@ -32,6 +32,7 @@ router.get('/:id', withLogin, async (req, res) => {
   }
 });
 
+//post new comment route on blog with :id
 router.post('/:id', withLogin, async (req, res) => {
   try {
     const newComment = await Comment.create({

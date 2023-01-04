@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const ONE_DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000;
-
+//session options
 const sess = {
   secret: process.env.SECRET,
   cookie: {
