@@ -8,7 +8,7 @@ class Comment extends Model {}
 
 Comment.init(
   {
-    Id: {
+    id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,

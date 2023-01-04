@@ -2,7 +2,7 @@ const withLogin = require('../../middleware/with-login');
 const { Comment, Blog, User } = require('../../models');
 const router = require('express').Router();
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', withLogin, async (req, res) => {
   try {
     //find blog by query param
     const blogData = await Blog.findOne({
@@ -32,11 +32,12 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/:id', withLogin, async (req, res) => {
   try {
     const newComment = await Comment.create({
       ...req.body,
-      // user_id: req.session.user_id,
+      user_id: req.session.user_id,
+      blog_id: req.params.id,
     });
 
     res.status(200).json(newComment);

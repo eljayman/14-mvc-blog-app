@@ -2,7 +2,8 @@ const handleBlogDel = async (e) => {
   e.preventDefault();
   const confirm = window.confirm('Are you sure you want to delete this blog?');
   if (confirm === true) {
-    fetch(`/api/blog/${blogId}`, {
+    const blog_id = document.querySelector('#blog-head-prompt').dataset.id;
+    fetch(`/api/blog/${blog_id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

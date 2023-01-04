@@ -1,3 +1,4 @@
+
 const handleNewComment = async (e) => {
   e.preventDefault();
   const contents = document.querySelector('textarea').value.trim();
@@ -7,13 +8,12 @@ const handleNewComment = async (e) => {
       method: 'POST',
       body: JSON.stringify({
         contents,
-        blog_id,
       }),
       headers: {
         'Content-Type': 'application/json',
       },
     }).then(() => {
-      return location.replace(`/api/comment/${blog_id}`);
+      return location.reload();
     });
   } else {
     return window.alert('Cannot leave an empty comment');
