@@ -70,7 +70,7 @@ router.get('/logout', withLogin, async (req, res) => {
     location.replace('/');
     res.end();
   } else {
-    alert(response.statusText);
+    alert('Incorrect name or password');
     res.end();
   }
 });
