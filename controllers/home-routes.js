@@ -46,13 +46,12 @@ router.get('/login', (req, res) => {
 //user dashboard requires user is logged in
 router.get('/dashboard', withLogin, async (req, res) => {
   const userData = await User.findOne({
-    where: req.session.name,
+    where: { id: req.session.user_id },
     attributes: { exclude: ['password'] },
     include: Blog,
   });
-//dashboard view includes all of user's blogs
+  //dashboard view includes all of user's blogs
   const user = userData.get({ plain: true });
-
   res.render('dashboard', {
     ...user,
     logged_in: req.session.logged_in,
