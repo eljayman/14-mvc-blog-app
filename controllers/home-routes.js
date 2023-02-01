@@ -67,10 +67,9 @@ router.get('/logout', withLogin, async (req, res) => {
   });
   //handle the response
   if (response.ok) {
-    location.replace('/');
+    location.replace('/login');
     res.end();
   } else {
-    alert('Incorrect name or password');
     res.end();
   }
 });

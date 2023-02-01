@@ -13,9 +13,9 @@ const loginHandler = async (e) => {
     });
     if (response.ok) {
       // If successful, redirect the browser to the profile page
-      document.location.replace('/dashboard');
+      return document.location.replace('/dashboard');
     } else {
-      alert(response.statusText);
+      return alert(response);
     }
   } else {
     //lets user know the fields can't be empty
